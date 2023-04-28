@@ -5,7 +5,7 @@ import SignupLogin from "./component/SigupLogin/SignupLogin";
 function App() {
   return (
     <Container>
-      <h1>Housing Board</h1>
+      <h1 className="my-4 text-center">Housing Board</h1>
       <SignupLogin></SignupLogin>
     </Container>
   );

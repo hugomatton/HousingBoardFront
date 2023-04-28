@@ -12,7 +12,7 @@ const FormStudent = () => {
         email: "",
         phone_number: "",
         university: "",
-        password: "",
+        password: ""
     })
 
     const [loginData, setLoginData] = useState({
@@ -45,8 +45,8 @@ const FormStudent = () => {
             {
                 isLogin ?
                     <div>
-                        <h2>Student Login</h2>
-                        <Card className='my-2 p-3'>
+                        <h2 className="my-4 text-center">Student Login</h2>
+                        <Card className='my-2 p-3 w-50 mx-auto'>
                             <Form>
 
                                 <Form.Group className="mb-3">
@@ -79,8 +79,8 @@ const FormStudent = () => {
                     </div>
                     :
                     <div>
-                        <h2>Student Registration</h2>
-                        <Card className='my-2 p-3'>
+                        <h2 className="my-4 text-center">Student Registration</h2>
+                        <Card className='my-2 p-3 w-50 mx-auto'>
                             <Form>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Student ID</Form.Label>
@@ -89,6 +89,17 @@ const FormStudent = () => {
                                         type="text"
                                         placeholder="Enter student ID"
                                         value={signupData.student_id}
+                                        onChange={handleChangeSignup}
+                                    />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control
+                                        id="password"
+                                        type="password"
+                                        placeholder="Enter password"
+                                        value={signupData.password}
                                         onChange={handleChangeSignup}
                                     />
                                 </Form.Group>
@@ -148,16 +159,6 @@ const FormStudent = () => {
                                     />
                                 </Form.Group>
 
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control
-                                        id="password"
-                                        type="password"
-                                        placeholder="Enter password"
-                                        value={signupData.password}
-                                        onChange={handleChangeSignup}
-                                    />
-                                </Form.Group>
                                 <Button type="button" onClick={signup}>Signup</Button>
                                 <Button variant='link' onClick={() => { setIsLogin(!isLogin) }}>{isLogin ? "Don't have an account" : "Already have an account"}</Button>
                             </Form>
