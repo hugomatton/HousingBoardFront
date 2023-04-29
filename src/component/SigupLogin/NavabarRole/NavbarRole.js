@@ -6,7 +6,7 @@ const NavbarRole = ({setChoice}) => {
 
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar className='w-50 navbar mx-auto' bg="primary" variant="dark" expand="sm">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
                 <Nav className="mr-auto">
