@@ -5,7 +5,7 @@ import StudentPage from "./component/Student/StudentPage";
 
 function App() {
   return (
-      <StudentPage></StudentPage>
+      <SignupLogin></SignupLogin>
   );
 }
 

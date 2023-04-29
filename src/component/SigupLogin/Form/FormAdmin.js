@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
 
@@ -19,12 +20,19 @@ const FormAdmin = () => {
         password: ""
     })
 
-    const signup = () => {
-        console.log(signupData)
+    async function signup () {
+        try {
+            console.log(signupData)
+            const result = await axios.post('http://localhost:5000/admin/signup', signupData)
+            console.log(result)
+        } catch (error) {
+            console.log(error.response)
+        }        
     }
 
-    const login = () => {
-        console.log(loginData)
+    async function login () {
+        const result = await axios.post('http://localhost:5000/admin/login', loginData)
+        console.log(result)
     }
 
     const handleChangeLogin = (event) => {
