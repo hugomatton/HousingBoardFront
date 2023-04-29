@@ -3,7 +3,7 @@ import FormStudent from './Form/FormStudent'
 import FormOwner from './Form/FormOwner'
 import FormAdmin from './Form/FormAdmin'
 import NavbarRole from './NavabarRole/NavbarRole'
-import { Container, Card } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 const SignupLogin = () => {
 
@@ -11,8 +11,8 @@ const SignupLogin = () => {
 
     return (
         <div>
-            <h1 className="my-4 text-center">Housing Board</h1>
             <Container>
+                <h1 className="text-center w-50 mx-auto p-3 my-0 text-primary">Housing Board</h1>
                 <NavbarRole setChoice={setChoice}></NavbarRole>
                 { choice === "student" && <FormStudent></FormStudent>}
                 { choice === "owner" && <FormOwner></FormOwner>}
