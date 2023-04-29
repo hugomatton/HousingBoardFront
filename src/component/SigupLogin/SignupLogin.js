@@ -3,7 +3,7 @@ import FormStudent from './Form/FormStudent'
 import FormOwner from './Form/FormOwner'
 import FormAdmin from './Form/FormAdmin'
 import NavbarRole from './NavabarRole/NavbarRole'
-import { Container } from 'react-bootstrap'
+import { Container, Card } from 'react-bootstrap'
 
 const SignupLogin = () => {
 

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import NavbarStudent from "./NavbarStudent/NavbarStudent";
+import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 import HousingCard from "../Shared/HousingCard/HousingCard";
 import HousingDetail from "../Shared/HousingDetail/HousingDetail";
 
-const StudentPage = () => {
+const AdminPage = () => {
   const [showDetails, setShowDetails] = useState(false);
 
   function handleShowDetails() {
@@ -13,7 +13,7 @@ const StudentPage = () => {
 
   return (
     <div>
-      <NavbarStudent></NavbarStudent>
+      <NavbarAdmin></NavbarAdmin>
       <Container>
         <div className="d-flex">
           <HousingCard showDetails={showDetails} onShowDetails={handleShowDetails}></HousingCard>
@@ -24,4 +24,4 @@ const StudentPage = () => {
   );
 };
 
-export default StudentPage;
+export default AdminPage;
