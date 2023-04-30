@@ -1,24 +1,20 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import NavbarOwner from "./NavbarOwner/NavbarOwner";
-import HousingCard from "../Shared/HousingCard/HousingCard";
-import HousingDetail from "../Shared/HousingDetail/HousingDetail";
+import MyHousings from "./Page/MyHousings";
+import FormHousing from "./Page/FormHousing";
+
 
 const OwnerPage = () => {
-  const [showDetails, setShowDetails] = useState(false);
-
-  function handleShowDetails() {
-    setShowDetails(!showDetails);
-  }
+  
+  const [page, setPage] = useState('myHousings')
 
   return (
     <div>
-      <NavbarOwner></NavbarOwner>
+      <NavbarOwner setPage={setPage}></NavbarOwner>
       <Container>
-        <div className="d-flex">
-          <HousingCard showDetails={showDetails} onShowDetails={handleShowDetails}></HousingCard>
-          {showDetails && <HousingDetail />}
-        </div>
+        {page === 'myHousings' && <MyHousings/>}
+        {page === 'addHousing' && <FormHousing/>}
       </Container>
     </div>
   );
