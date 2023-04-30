@@ -28,7 +28,7 @@ const FormAdmin = () => {
         try {
             const result = await axios.post('http://localhost:5000/admin/signup', signupData)
             if(result.status === 201){
-                navigate('/student')
+                navigate('/admin')
             }
         } catch (error) {
             setError(true)
@@ -39,7 +39,7 @@ const FormAdmin = () => {
         try {
             const result = await axios.post('http://localhost:5000/admin/login', loginData)
             if(result.status === 200){
-                navigate('student')
+                navigate('/admin')
             }
         } catch (error) {
             setError(true)

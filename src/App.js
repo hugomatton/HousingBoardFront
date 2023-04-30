@@ -4,19 +4,16 @@ import SignupLogin from "./component/SigupLogin/SignupLogin";
 import StudentPage from "./component/Student/StudentPage";
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-
-
-
 function App() {
 
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <SignupLogin />
+      element: <SignupLogin/>
     },
     {
       path: 'student',
-      element: <StudentPage />
+      element: <StudentPage/>
     },
     {
       path: 'owner',
