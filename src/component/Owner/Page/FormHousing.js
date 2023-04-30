@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { Card, Form, Row, Col, Button } from 'react-bootstrap'
 import FormPicture from './FormPicture/FormPicture'
 
@@ -16,9 +17,18 @@ const FormHousing = () => {
         owner_id: "1",
     })
 
-    const [typeOptions, setTypeOptions] = useState(["option 1", "option 2", "option 3"])
+    const [typeOptions, setTypeOptions] = useState([])
 
     const [housingPictures, setHousingPictures] = useState([])
+
+    const getHousingType = async ()=>{
+        const result = await axios.get('http://localhost:5000/housingtypes')
+        setTypeOptions( result.data.rows)
+    }
+
+    useEffect(()=>{
+        getHousingType()
+    },[])
 
     const handleChange = (event) => {
         let newData = { ...housingData }
@@ -27,7 +37,8 @@ const FormHousing = () => {
     }
 
     const onSubmit = () => {
-        console.log({...housingData, pictures: housingPictures})
+        const data = {...housingData, pictures: housingPictures}
+        axios.post('http://localhost:5000/housing', data)
     }
 
     return (
