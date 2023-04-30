@@ -1,9 +1,14 @@
+import axios from 'axios'
 import React, { useState } from 'react'
-import { Button, Card, Form } from 'react-bootstrap'
+import { Button, Card, Form, Alert } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 const FormOwner = () => {
 
+    const navigate = useNavigate()
+
     const [isLogin, setIsLogin] = useState(true)
+    const [error, setError] = useState(false)
 
     const [signupData, setSignupData] = useState({
         owner_id: "",
@@ -19,12 +24,26 @@ const FormOwner = () => {
         password: ""
     })
 
-    const signup = () => {
-        console.log(signupData)
+    async function signup () {
+        try {
+            const result = await axios.post('http://localhost:5000/owner/signup', signupData)
+            if(result.status === 201){
+                navigate('/owner')
+            }
+        } catch (error) {
+            setError(true)
+        }  
     }
 
-    const login = () => {
-        console.log(loginData)
+    async function login () {
+        try {
+            const result = await axios.post('http://localhost:5000/owner/login', loginData)
+            if(result.status === 200){
+                navigate('/owner')
+            }
+        } catch (error) {
+            setError(true)
+        }
     }
 
     const handleChangeLogin = (event) => {
@@ -40,12 +59,12 @@ const FormOwner = () => {
     }
 
     return (
-        <div>
+        <div className='w-50 mx-auto'>
             {
                 isLogin ?
                     <div>
                         <h2 className="my-4 text-center">Owner Login</h2>
-                        <Card className='my-2 p-3 w-50 mx-auto'>
+                        <Card className='my-2 p-3'>
                             <Form>
 
                                 <Form.Group className="mb-3">
@@ -79,7 +98,7 @@ const FormOwner = () => {
                     :
                     <div>
                         <h2 className="my-4 text-center">Owner Registration</h2>
-                        <Card className='my-2 p-3 w-50 mx-auto'>
+                        <Card className='my-2 p-3'>
                             <Form>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Owner ID</Form.Label>
@@ -153,7 +172,7 @@ const FormOwner = () => {
                         </Card>
                     </div>
             }
-
+            {error && <Alert variant='danger'>Something wrong happened</Alert>}
         </div>
     )
 }
