@@ -1,10 +1,14 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Button, Card, Form } from 'react-bootstrap'
+import { Button, Card, Form, Alert } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 const FormAdmin = () => {
 
+    const navigate = useNavigate()
+
     const [isLogin, setIsLogin] = useState(true)
+    const [error, setError] = useState(false)
 
     const [signupData, setSignupData] = useState({
         admin_id: "",
@@ -22,17 +26,24 @@ const FormAdmin = () => {
 
     async function signup () {
         try {
-            console.log(signupData)
             const result = await axios.post('http://localhost:5000/admin/signup', signupData)
-            console.log(result)
+            if(result.status === 201){
+                navigate('/student')
+            }
         } catch (error) {
-            console.log(error.response)
+            setError(true)
         }        
     }
 
     async function login () {
-        const result = await axios.post('http://localhost:5000/admin/login', loginData)
-        console.log(result)
+        try {
+            const result = await axios.post('http://localhost:5000/admin/login', loginData)
+            if(result.status === 200){
+                navigate('student')
+            }
+        } catch (error) {
+            setError(true)
+        }
     }
 
     const handleChangeLogin = (event) => {
@@ -48,12 +59,12 @@ const FormAdmin = () => {
     }
 
     return (
-        <div>
+        <div className='w-50 mx-auto'>
             {
                 isLogin ?
                     <div>
                         <h2 className="my-4 text-center">Admin Login</h2>
-                        <Card className='my-2 p-3 w-50 mx-auto'>
+                        <Card className='my-2 p-3 '>
                             <Form>
 
                                 <Form.Group className="mb-3">
@@ -87,7 +98,7 @@ const FormAdmin = () => {
                     :
                     <div>
                         <h2 className="my-4 text-center">Admin Registration</h2>
-                        <Card className='my-2 p-3 w-50 mx-auto'>
+                        <Card className='my-2 p-3'>
                             <Form>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Admin ID</Form.Label>
@@ -161,7 +172,7 @@ const FormAdmin = () => {
                         </Card>
                     </div>
             }
-
+            {error && <Alert variant='danger'>Something wrong happened</Alert>}
         </div>
     )
 }
