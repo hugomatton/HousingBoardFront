@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Card, Form, Row, Col, Button, Alert } from 'react-bootstrap'
+import { Card, Form, Row, Col, Button, Alert, Spinner } from 'react-bootstrap'
 import FormPicture from './FormPicture/FormPicture'
 
 const FormHousing = ({setPage}) => {
@@ -23,6 +23,8 @@ const FormHousing = ({setPage}) => {
 
     const [error, setError] = useState(false)
 
+    const [isSubmiting, setIsSubmiting] = useState(false)
+
     const getHousingType = async ()=>{
         const result = await axios.get('http://localhost:5000/housingtypes')
         setTypeOptions( result.data.rows)
@@ -41,9 +43,12 @@ const FormHousing = ({setPage}) => {
     const onSubmit = async () => {
         const data = {...housingData, pictures: housingPictures}
         try {
+            setIsSubmiting(true)
             const result = await axios.post('http://localhost:5000/housing', data)
+            setIsSubmiting(false)
             setPage('myHousings')
         } catch (error) {
+            setIsSubmiting(false)
             setError(true)
         }
     }
@@ -170,6 +175,7 @@ const FormHousing = ({setPage}) => {
                     <FormPicture setHousingPictures={setHousingPictures}/>
 
                     <Button type="button" onClick={onSubmit}>Submit</Button>
+                    {isSubmiting && <Spinner animation="grow" variant="primary" />}
                 </Form>
                 {error && <Alert variant='danger' className='mt-3'>Something wrong happened</Alert>}
             </Card>
