@@ -16,7 +16,7 @@ const NavbarStudent = () => {
 
   return (
 
-    <Navbar bg="primary" variant="dark">
+    <Navbar bg="primary" variant="dark" sticky='top'>
       <Container>
         <Navbar.Brand href="#home" style={{ display: "flex", alignItems: "center" }}>
           <img
