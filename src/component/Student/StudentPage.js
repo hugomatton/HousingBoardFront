@@ -15,10 +15,10 @@ const StudentPage = () => {
     <div>
       <NavbarStudent></NavbarStudent>
       <Container>
-        <div className="d-flex">
+        {/*<div className="d-flex">
           <HousingCard showDetails={showDetails} onShowDetails={handleShowDetails}></HousingCard>
           {showDetails && <HousingDetail />}
-        </div>
+        </div>*/}
       </Container>
     </div>
   );

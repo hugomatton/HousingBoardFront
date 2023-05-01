@@ -29,6 +29,7 @@ const FormStudent = () => {
         try {
             const result = await axios.post('http://localhost:5000/student/signup', signupData)
             if(result.status === 201){
+                localStorage.setItem('studentId', signupData.student_id)
                 navigate('/student')
             }
         } catch (error) {
@@ -40,6 +41,7 @@ const FormStudent = () => {
         try {
             const result = await axios.post('http://localhost:5000/student/login', loginData)
             if(result.status === 200){
+                localStorage.setItem('studentId', loginData.student_id)
                 navigate('/student')
             }
         } catch (error) {

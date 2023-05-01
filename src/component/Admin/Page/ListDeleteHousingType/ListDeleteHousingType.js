@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Card, Button, Alert } from "react-bootstrap";
-import axios from 'axios';
+import React, { useState } from "react";
+import { Card, Button, Alert, ListGroup } from "react-bootstrap";
+import axios from "axios";
 
 const ListDeleteHousingType = ({ typeOptions, getHousingType }) => {
-
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [activeCell, setActiveCell] = useState(null);
 
   const onDelete = async (type_name) => {
     try {
@@ -26,21 +26,27 @@ const ListDeleteHousingType = ({ typeOptions, getHousingType }) => {
       <Card className="my-2 p-4 ">
         <h4>List of Housing Types</h4>
         {error && (<Alert variant="danger" className="my-2">{errorMessage}</Alert>)}
-        <ul>
+        <ListGroup>
           {typeOptions.map((type) => (
-            <li key={type}>
+            <ListGroup.Item
+              key={type}
+              className="list-group-item d-flex justify-content-between align-items-center"
+              onMouseEnter={() => setActiveCell(type)}
+              onMouseLeave={() => setActiveCell(null)}
+              style={{backgroundColor: activeCell === type ? '#f2f2f2' : 'white',transition: 'background-color 0.5s ease'}}
+            >
               {type}
               <Button
                 type="button"
-                variant="link"
-                style={{ marginLeft: "20px" }}
+                variant="danger"
+                className="float-right"
                 onClick={() => onDelete(type)}
               >
                 Delete
               </Button>
-            </li>
+            </ListGroup.Item>
           ))}
-        </ul>
+        </ListGroup>
       </Card>
     </div>
   );

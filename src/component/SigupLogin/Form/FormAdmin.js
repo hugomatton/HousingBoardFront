@@ -28,6 +28,7 @@ const FormAdmin = () => {
         try {
             const result = await axios.post('http://localhost:5000/admin/signup', signupData)
             if(result.status === 201){
+                localStorage.setItem('adminId', signupData.admin_id)
                 navigate('/admin')
             }
         } catch (error) {
@@ -39,6 +40,7 @@ const FormAdmin = () => {
         try {
             const result = await axios.post('http://localhost:5000/admin/login', loginData)
             if(result.status === 200){
+                localStorage.setItem('adminId', loginData.admin_id)
                 navigate('/admin')
             }
         } catch (error) {

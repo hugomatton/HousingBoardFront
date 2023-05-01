@@ -13,7 +13,7 @@ const AdminPage = () => {
     <div>
       <NavbarAdmin setPage={setPage}></NavbarAdmin>
       <Container>
-        {page === 'housings' && <Housings/>}
+        {/*{page === 'housings' && <Housings/>}*/}
         {page === 'housingType' && <FormHousingType/>}
       </Container>
     </div>
