@@ -15,7 +15,7 @@ const NavbarOwner = ({ setPage }) => {
 
   return (
 
-    <Navbar bg="primary" variant="dark">
+    <Navbar bg="primary" variant="dark" sticky='top'>
       <Container>
         <Navbar.Brand href="#home">Housing Board</Navbar.Brand>
         <Nav className="me-auto">

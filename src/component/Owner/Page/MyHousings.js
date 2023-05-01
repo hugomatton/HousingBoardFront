@@ -5,37 +5,40 @@ import axios from 'axios';
 
 const MyHousings = () => {
 
-    const [showDetails, setShowDetails] = useState(false);
+    const [selectedHousing, setSelectedHousing] = useState();
     const [housings, setHousings] = useState([])
 
-    async function getHousings(){
+    async function getHousings() {
         const result = await axios.get(`http://localhost:5000/housing/${localStorage.getItem('ownerId')}`)
         console.log(result.data)
         setHousings(result.data)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getHousings()
-    },[])
+    }, [])
 
-    function handleShowDetails() {
-        setShowDetails(!showDetails);
-    }
+
 
     return (
 
         <div className="d-flex">
-            {housings.map(
-                (housing) => {
-                    return(
-                        <div key={housing.housing_id}>
-                            <HousingCard housing={housing} showDetails={showDetails} onShowDetails={handleShowDetails}></HousingCard>
+            <div className="flex-grow-1 d-flex flex-column">
+                {housings.map((housing) => {
+                    return (
+                        <div key={housing.housing_id} className="mb-3">
+                            <HousingCard housing={housing} setSelectedHousing={setSelectedHousing}></HousingCard>
                         </div>
-                    )  
-                }
-            )}
-            {showDetails && <HousingDetail />}
+                    )
+                })}
+            </div>
+
+            <div className="flex-grow-1">
+                {selectedHousing && <HousingDetail housing={selectedHousing}/>}
+            </div>
+
         </div>
+
 
     )
 }
