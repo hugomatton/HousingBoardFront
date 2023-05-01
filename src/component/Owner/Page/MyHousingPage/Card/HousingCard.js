@@ -9,9 +9,9 @@ const HousingCard = ({ housing, setSelectedHousing }) => {
           {housing.housing_address}
         </Card.Title>
       <Card.Body>
-        <Card.Text style={{ fontSize: '16px' }} className="mb-2 ">Number of bathroom : {housing.bathrooms_nb}</Card.Text>
-        <Card.Text style={{ fontSize: '16px' }} className="mb-2 ">Number of bedrooms : {housing.bedrooms_nb}</Card.Text>
-        <Card.Text style={{ fontSize: '16px' }} className="mb-3 ">Monthly rent : {housing.monthly_rent}</Card.Text>
+        <Card.Text style={{ fontSize: '16px' }} className="mb-2 "><strong>{housing.bathrooms_nb}</strong> Bathrooms</Card.Text>
+        <Card.Text style={{ fontSize: '16px' }} className="mb-2 "><strong>{housing.bedrooms_nb}</strong> Bedrooms</Card.Text>
+        <Card.Text style={{ fontSize: '16px' }} className="mb-3 ">Monthly rent : <strong>{housing.monthly_rent}</strong>  €</Card.Text>
         <div className="d-flex align-items-center justify-content-around">
           <Button style={{ width: '5rem' }} variant="light" onClick={() => { setSelectedHousing(housing) }}>Show</Button>
           <Button style={{ width: '5rem' }} variant="outline-success" onClick={() => { setSelectedHousing(housing) }}><strong>Edit</strong></Button>

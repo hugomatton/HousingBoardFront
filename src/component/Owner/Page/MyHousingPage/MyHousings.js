@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import HousingCard from '../../Shared/HousingCard/HousingCard'
-import HousingDetail from '../../Shared/HousingDetail/HousingDetail'
+import HousingCard from './Card/HousingCard'
+import HousingDetail from './Detail/HousingDetail'
 import axios from 'axios';
 
 const MyHousings = () => {

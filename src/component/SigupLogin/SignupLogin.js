@@ -22,8 +22,8 @@ const SignupLogin = () => {
             />
           </div>
           <h1
-            style={{ display: "inline-block", verticalAlign: "middle" }}
-            className="text-center p-3 my-0 text-primary"
+            style={{ display: "inline-block", verticalAlign: "middle", color:'#004a55' }}
+            className="text-center p-3 my-0 "
           >
             EUC Housing Board
           </h1>
