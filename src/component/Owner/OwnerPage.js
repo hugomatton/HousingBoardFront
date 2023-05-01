@@ -14,7 +14,7 @@ const OwnerPage = () => {
       <NavbarOwner setPage={setPage}></NavbarOwner>
       <Container>
         {page === 'myHousings' && <MyHousings/>}
-        {page === 'addHousing' && <FormHousing/>}
+        {page === 'addHousing' && <FormHousing setPage={setPage}/>}
       </Container>
     </div>
   );

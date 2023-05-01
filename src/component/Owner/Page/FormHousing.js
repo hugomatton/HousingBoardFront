@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Card, Form, Row, Col, Button } from 'react-bootstrap'
+import { Card, Form, Row, Col, Button, Alert } from 'react-bootstrap'
 import FormPicture from './FormPicture/FormPicture'
 
-const FormHousing = () => {
+const FormHousing = ({setPage}) => {
 
     const [housingData, setHousingData] = useState({
-        housing_address: "address test",
-        bedrooms_nb: 3,
-        bathrooms_nb: 2,
-        area: 170,
+        housing_address: "",
+        bedrooms_nb: 1,
+        bathrooms_nb: 1,
+        area: 100,
         monthly_rent: 1000,
-        lease_duration: 9,
+        lease_duration: 10,
         furnished: "1",
         type_name: "Studio",
-        owner_id: "1",
+        owner_id: "owner1",
     })
 
     const [typeOptions, setTypeOptions] = useState([])
 
     const [housingPictures, setHousingPictures] = useState([])
+
+    const [error, setError] = useState(false)
 
     const getHousingType = async ()=>{
         const result = await axios.get('http://localhost:5000/housingtypes')
@@ -36,9 +38,14 @@ const FormHousing = () => {
         setHousingData(newData)
     }
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
         const data = {...housingData, pictures: housingPictures}
-        axios.post('http://localhost:5000/housing', data)
+        try {
+            const result = await axios.post('http://localhost:5000/housing', data)
+            setPage('myHousings')
+        } catch (error) {
+            setError(true)
+        }
     }
 
     return (
@@ -164,6 +171,7 @@ const FormHousing = () => {
 
                     <Button type="button" onClick={onSubmit}>Submit</Button>
                 </Form>
+                {error && <Alert variant='danger' className='mt-3'>Something wrong happened</Alert>}
             </Card>
         </div>
     )
