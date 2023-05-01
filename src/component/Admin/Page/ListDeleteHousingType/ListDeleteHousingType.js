@@ -8,16 +8,18 @@ const ListDeleteHousingType = ({ typeOptions, getHousingType }) => {
   const [activeCell, setActiveCell] = useState(null);
 
   const onDelete = async (type_name) => {
-    try {
-      await axios
-        .delete(`http://localhost:5000/housingtypes/${type_name}`)
-        .then(() => {
-          getHousingType();
-        });
-      setError(false);
-    } catch (error) {
-      setError(true);
-      setErrorMessage("Something wrong happened");
+    if (window.confirm(`Are you sure you want to delete "${type_name}"?`)) {
+      try {
+        await axios
+          .delete(`http://localhost:5000/housingtypes/${type_name}`)
+          .then(() => {
+            getHousingType();
+          });
+        setError(false);
+      } catch (error) {
+        setError(true);
+        setErrorMessage("Something wrong happened");
+      }
     }
   };
 
