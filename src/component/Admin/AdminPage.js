@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 import Housings from "./Page/Housings";
-import FormHousingType from "./Page/FormHousingType";
+import FormHousingType from "./Page/HandleHousingType";
 
 
 const AdminPage = () => {
