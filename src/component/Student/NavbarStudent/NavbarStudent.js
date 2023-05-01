@@ -18,7 +18,7 @@ const NavbarStudent = () => {
 
     <Navbar bg="primary" variant="dark" sticky='top'>
       <Container>
-        <Navbar.Brand href="#home" style={{ display: "flex", alignItems: "center" }}>
+        <Navbar.Brand style={{ display: "flex", alignItems: "center" }}>
           <img
             src={logo}
             height="40"
@@ -28,8 +28,8 @@ const NavbarStudent = () => {
           <span style={{ marginLeft: "10px" }}>EUC Housing Board</span>
         </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link className="mx-5" href="#home">Housing</Nav.Link>
-          <Nav.Link className="mx-5" href="#features">Message</Nav.Link>
+          <Nav.Link className="mx-5">Housing</Nav.Link>
+          <Nav.Link className="mx-5">Message</Nav.Link>
         </Nav>
         <Button variant="outline-light" onClick={logout}>Logout</Button>
       </Container>

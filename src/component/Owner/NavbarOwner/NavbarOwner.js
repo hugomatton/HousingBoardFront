@@ -18,7 +18,7 @@ const NavbarOwner = ({ setPage }) => {
 
     <Navbar bg="primary" variant="dark" sticky='top'>
       <Container>
-        <Navbar.Brand href="#home" style={{ display: "flex", alignItems: "center" }}>
+        <Navbar.Brand style={{ display: "flex", alignItems: "center" }}>
           <img
             src={logo}
             height="40"

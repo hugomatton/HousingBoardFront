@@ -19,7 +19,7 @@ const NavbarAdmin = ({setPage}) => {
 
     <Navbar bg="primary" variant="dark">
       <Container>
-        <Navbar.Brand href="#home" style={{ display: "flex", alignItems: "center" }}>
+        <Navbar.Brand style={{ display: "flex", alignItems: "center" }}>
           <img
             src={logo}
             height="40"
@@ -29,8 +29,8 @@ const NavbarAdmin = ({setPage}) => {
           <span style={{ marginLeft: "10px" }}>EUC Housing Board</span>
         </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link className="mx-5" onClick={()=>{setPage('housings')}}>Housings</Nav.Link>
-          <Nav.Link onClick={()=>{setPage('housingType')}}>Housing Type</Nav.Link>
+          <Nav.Link className="mx-5" onClick={()=>{setPage('Housing')}}>Housings</Nav.Link>
+          <Nav.Link onClick={()=>{setPage('HousingType')}}>Housing Type</Nav.Link>
         </Nav>
         <Button variant="outline-light" onClick={logout}>Logout</Button>
       </Container>

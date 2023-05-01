@@ -21,3 +21,4 @@ const HousingCard = ({ housing, setSelectedHousing }) => {
 };
 
 export default HousingCard;
+

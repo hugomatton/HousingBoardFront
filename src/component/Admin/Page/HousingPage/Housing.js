@@ -4,13 +4,13 @@ import HousingDetail from './Detail/HousingDetail'
 import axios from 'axios';
 import { Alert } from 'react-bootstrap';
 
-const MyHousings = () => {
+const Housing = () => {
 
     const [selectedHousing, setSelectedHousing] = useState();
     const [housings, setHousings] = useState([])
 
     async function getHousings() {
-        const result = await axios.get(`http://localhost:5000/housing/${localStorage.getItem('ownerId')}`)
+        const result = await axios.get(`http://localhost:5000/housing`)
         console.log(result.data)
         setHousings(result.data)
     }
@@ -19,11 +19,9 @@ const MyHousings = () => {
         getHousings()
     }, [setSelectedHousing, selectedHousing])
 
-
-
     return (
         <div>
-            {housings.length === 0 && <Alert className='my-5' variant="primary">You don't have any housing </Alert>}
+            {housings.length === 0 && <Alert className='my-5' variant="primary">There are no housings </Alert>}
             <div className="d-flex">
                 <div className="flex-grow-1 d-flex flex-column">
                     {housings.map((housing) => {
@@ -44,4 +42,4 @@ const MyHousings = () => {
     )
 }
 
-export default MyHousings
+export default Housing
