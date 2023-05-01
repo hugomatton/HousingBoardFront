@@ -1,0 +1,23 @@
+import React, { useState } from 'react'
+import HousingCard from '../../Shared/HousingCard/HousingCard'
+import HousingDetail from '../../Shared/HousingDetail/HousingDetail'
+
+const Housings = () => {
+
+    const [showDetails, setShowDetails] = useState(false);
+
+    function handleShowDetails() {
+        setShowDetails(!showDetails);
+    }
+
+    return (
+
+        <div className="d-flex">
+            <HousingCard showDetails={showDetails} onShowDetails={handleShowDetails}></HousingCard>
+            {showDetails && <HousingDetail />}
+        </div>
+
+    )
+}
+
+export default Housings
