@@ -9,6 +9,7 @@ const OwnerPage = () => {
   
   const [page, setPage] = useState('myHousings')
 
+
   return (
     <div>
       <NavbarOwner setPage={setPage}></NavbarOwner>

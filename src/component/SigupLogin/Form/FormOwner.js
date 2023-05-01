@@ -28,6 +28,7 @@ const FormOwner = () => {
         try {
             const result = await axios.post('http://localhost:5000/owner/signup', signupData)
             if(result.status === 201){
+                localStorage.setItem('ownerId', signupData.owner_id)
                 navigate('/owner')
             }
         } catch (error) {
@@ -40,6 +41,7 @@ const FormOwner = () => {
             const result = await axios.post('http://localhost:5000/owner/login', loginData)
             if(result.status === 200){
                 navigate('/owner')
+                localStorage.setItem('ownerId',loginData.owner_id)
             }
         } catch (error) {
             setError(true)

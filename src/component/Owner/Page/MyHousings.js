@@ -5,6 +5,9 @@ import HousingDetail from '../../Shared/HousingDetail/HousingDetail'
 const MyHousings = () => {
 
     const [showDetails, setShowDetails] = useState(false);
+    const [housings, setHousings] = useState([])
+
+    
 
     function handleShowDetails() {
         setShowDetails(!showDetails);
