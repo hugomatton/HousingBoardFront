@@ -1,23 +1,17 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, ListGroup } from "react-bootstrap";
 
-const HousingCard = (props) => {
-  const { showDetails, onShowDetails } = props;
+const HousingCard = ({ showDetails, onShowDetails, housing }) => {
   return (
-    <Card className="my-2 p-2 mx-3" style={{ height: "300px", width: "300px" }}>
-      <Card.Title className="text-center">Address</Card.Title>
-      <div style={{ height: "200px", overflow: "hidden"}}>
-        <Card.Img
-          style={{ objectFit: "cover", objectPosition: "center", borderRadius: "3%", height: "100%"}}
-          src="https://resize.logisco.com/azure/photos/logisco_immenble_residentiel_appartement_a_louer_bloc_le_plateau_de_larcher_loretteville_quebec_cuisine1.jpg?watermark=logo"
-        />
-      </div>
-      <Card.Body style={{ height: "100px" }}>
-        <Card.Subtitle style={{ fontSize: '12px' }} className="mb-2 text-muted text-center">{`Nb rooms | Nb bathrooms | Nb€ per month`}</Card.Subtitle>
-        <div className="d-flex align-items-center justify-content-center my-3">
-          <Button onClick={onShowDetails}>
-            {showDetails ? "Hide details" : "Show details"}
-          </Button>
+    <Card style={{ width: '15rem' }} className="m-3 p-0">
+      <Card.Img variant="top" src={housing.pictures[0]} />
+      <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Text style={{ fontSize: '16px' }} className="mb-2 text-muted ">Number of bathroom : {housing.bathrooms_nb}</Card.Text>
+        <Card.Text style={{ fontSize: '16px' }} className="mb-2 text-muted ">Number of bedrooms : {housing.bedrooms_nb}</Card.Text>
+        <Card.Text style={{ fontSize: '16px' }} className="mb-3 text-muted ">Monthly rent : {housing.monthly_rent}</Card.Text>
+        <div className="d-flex align-items-center justify-content-center">
+          <Button variant="primary">Show details</Button>
         </div>
       </Card.Body>
     </Card>
@@ -25,3 +19,26 @@ const HousingCard = (props) => {
 };
 
 export default HousingCard;
+
+/**
+ * 
+ * <Card className="my-2 p-2 mx-3" style={{ height: "300px", width: "300px" }}>
+      <Card.Title className="text-center">{housing.housing_address}</Card.Title>
+      <div style={{ height: "200px", overflow: "hidden"}}>
+        <Card.Img
+          style={{ objectFit: "cover", objectPosition: "center", borderRadius: "3%", height: "100%"}}
+          src={housing.pictures[0]}
+        />
+      </div>
+      <Card.Body style={{ height: "100px" }}>
+        <Card.Text style={{ fontSize: '12px' }} className="mb-2 text-muted ">Number of bathroom : {housing.bathrooms_nb}</Card.Text>
+        <Card.Text style={{ fontSize: '12px' }} className="mb-2 text-muted ">Number of bedrooms : {housing.bedrooms_nb}</Card.Text>
+        <Card.Text style={{ fontSize: '12px' }} className="mb-2 text-muted ">Monthly rent : {housing.monthly_rent}</Card.Text>
+        <div className="d-flex align-items-center justify-content-center my-3">
+          <Button onClick={onShowDetails}>
+            {showDetails ? "Hide details" : "Show details"}
+          </Button>
+        </div>
+      </Card.Body>
+    </Card>
+ */
