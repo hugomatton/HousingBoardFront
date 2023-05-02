@@ -15,7 +15,7 @@ const FormHousing = ({setPage}) => {
         furnished: "1",
         type_name: "Studio",
         owner_id: localStorage.getItem('ownerId'),
-    })
+      })
 
     const [typeOptions, setTypeOptions] = useState([])
 

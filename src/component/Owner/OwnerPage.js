@@ -6,9 +6,8 @@ import FormHousing from "./Page/FormPage/FormHousing";
 
 
 const OwnerPage = () => {
-  
-  const [page, setPage] = useState('myHousings')
 
+  const [page, setPage] = useState('myHousings')
 
   return (
     <div>
