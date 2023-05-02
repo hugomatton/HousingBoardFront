@@ -2,7 +2,7 @@ import React from "react";
 import axios from 'axios'
 import { Badge, Card, Carousel, Button } from "react-bootstrap";
 
-const HousingDetail = ({ housing, setSelectedHousing }) => {
+const HousingDetail = ({ housing, setSelectedHousing, setIsEditing }) => {
 
   const onDelete = async (type_name) => {
     if (window.confirm(`Are you sure you want to delete this housing ?`)) {
@@ -44,7 +44,7 @@ const HousingDetail = ({ housing, setSelectedHousing }) => {
         <Card.Text>For a Lease duration of <strong>{housing.lease_duration} months</strong> 📅</Card.Text>
         <div className="d-flex justify-content-end align-items-end">
           <Button variant="danger" className="me-3" onClick={onDelete}>Delete</Button>
-          <Button variant="warning">Edit</Button>
+          <Button variant="warning" onClick={()=>{setIsEditing(true)}}>Edit</Button>
         </div>
       </Card.Body>
     </Card>
