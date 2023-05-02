@@ -23,7 +23,7 @@ const HousingDetail = ({ housing, setSelectedHousing }) => {
           housing.pictures.map((picture) => {
             return (
               <Carousel.Item>
-                <Card.Img src={picture} />
+                <Card.Img style={{ maxHeight: '50vh' }} src={picture} />
               </Carousel.Item>
             )
           })

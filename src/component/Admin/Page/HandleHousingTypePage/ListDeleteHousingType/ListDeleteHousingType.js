@@ -25,7 +25,7 @@ const ListDeleteHousingType = ({ typeOptions, getHousingType }) => {
 
   return (
     <div>
-      <Card className="my-2 p-4 ">
+      <Card className="my-2 p-4 bg-light">
         <h4>List of Housing Types</h4>
         {error && (<Alert variant="danger" className="my-2">{errorMessage}</Alert>)}
         <ListGroup>
@@ -35,7 +35,7 @@ const ListDeleteHousingType = ({ typeOptions, getHousingType }) => {
               className="list-group-item d-flex justify-content-between align-items-center"
               onMouseEnter={() => setActiveCell(type)}
               onMouseLeave={() => setActiveCell(null)}
-              style={{backgroundColor: activeCell === type ? '#f2f2f2' : 'white',transition: 'background-color 0.5s ease'}}
+              style={{backgroundColor: activeCell === type ? '#cccccc' : '#EAEAEA',transition: 'background-color 0.5s ease'}}
             >
               {type}
               <Button

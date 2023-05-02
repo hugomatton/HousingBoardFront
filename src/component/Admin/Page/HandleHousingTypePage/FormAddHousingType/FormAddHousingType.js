@@ -35,11 +35,12 @@ const FormAddHousingType = ({ getHousingType }) => {
   return (
     <div>
       <h2 className="my-4 text-center">Housing Types 🏠</h2>
-      <Card className="my-2 p-4 ">
+      <Card className="my-2 p-4 bg-light">
         <Form>
           <Form.Group className="mb-3">
             <h4>New housing type</h4>
             <Form.Control
+              style={{ backgroundColor: '#EAEAEA' }}
               type="text"
               placeholder="Enter new type here"
               id="type_name"
@@ -47,7 +48,7 @@ const FormAddHousingType = ({ getHousingType }) => {
               onChange={handleChange}
             />
           </Form.Group>
-          <Button type="button" onClick={onSubmit}>
+          <Button type="button" variant="dark" onClick={onSubmit}>
             Submit
           </Button>
         </Form>
