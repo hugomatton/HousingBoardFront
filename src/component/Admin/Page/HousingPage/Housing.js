@@ -33,7 +33,7 @@ const Housing = () => {
                     })}
                 </div>
 
-                <div style={{ width: "400px", position: "fixed", right: "600px" }}>
+                <div style={{ width: "65%", position: "fixed", right: "0%" }}>
                     {selectedHousing && <HousingDetail housing={selectedHousing} setSelectedHousing={setSelectedHousing} />}
                 </div>
 
