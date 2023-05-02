@@ -17,7 +17,7 @@ const NavbarAdmin = ({setPage}) => {
   
   return (
 
-    <Navbar bg="primary" variant="dark">
+    <Navbar bg="primary" variant="dark" sticky='top'>
       <Container>
         <Navbar.Brand style={{ display: "flex", alignItems: "center" }}>
           <img

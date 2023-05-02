@@ -4,7 +4,7 @@ import { Button, Form, Row, Col, Card } from 'react-bootstrap'
 const FormPicture = ({ setHousingPictures }) => {
 
     const [pictures, setPictures] = useState([])
-    const [url, setUrl] = useState([])
+    const [url, setUrl] = useState('')
 
     const handleUrlChange = (event) => {
         setUrl(event.target.value)
@@ -33,10 +33,10 @@ const FormPicture = ({ setHousingPictures }) => {
             <Form.Label>Url image :</Form.Label>
             <Row className='mb-3'>
                 <Col xs={10}>
-                    <Form.Control placeholder='http://url_image' type="text" value={url} onChange={handleUrlChange} />
+                    <Form.Control style={{ backgroundColor: '#EAEAEA' }} placeholder='http://url_image' type="text" value={url} onChange={handleUrlChange} />
                 </Col>
                 <Col xs={2} className="d-flex align-items-center justify-content-end">
-                    <Button onClick={onAddPicture}>Add</Button>
+                    <Button variant="dark" onClick={onAddPicture} disabled={url.length === 0}>Add</Button>
                 </Col>
             </Row>
             <Row>

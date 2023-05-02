@@ -3,15 +3,17 @@ import { Button, Form, Row, Col, Card } from 'react-bootstrap'
 
 const UpdatePicture = ({ setHousingPictures, housingPictures }) => {
 
-    const [url, setUrl] = useState([])
+    const [pictures, setPictures] = useState([])
+    const [url, setUrl] = useState('')
 
     const handleUrlChange = (event) => {
         setUrl(event.target.value)
     }
 
     const onAddPicture = () => {
-        let newData = [...housingPictures]
+        let newData = [...pictures]
         newData.push(url)
+        setPictures(newData)
         setUrl('')
         setHousingPictures(newData)
     }
@@ -22,11 +24,11 @@ const UpdatePicture = ({ setHousingPictures, housingPictures }) => {
         if (index !== -1) {
             newPictures.splice(index, 1);
         }
+        setPictures(newPictures)
         setHousingPictures(newPictures)
     }
 
     useEffect(()=>{
-        console.log('ok')
     }, [housingPictures])
 
     return (
@@ -34,10 +36,10 @@ const UpdatePicture = ({ setHousingPictures, housingPictures }) => {
             <Form.Label>Url image :</Form.Label>
             <Row className='mb-3'>
                 <Col xs={10}>
-                    <Form.Control placeholder='http://url_image' type="text" value={url} onChange={handleUrlChange} />
+                    <Form.Control style={{ backgroundColor: '#EAEAEA' }} placeholder='http://url_image' type="text" value={url} onChange={handleUrlChange} />
                 </Col>
                 <Col xs={2} className="d-flex align-items-center justify-content-end">
-                    <Button onClick={onAddPicture}>Add</Button>
+                    <Button variant="dark" onClick={onAddPicture} disabled={!url}>Add</Button>
                 </Col>
             </Row>
             <Row>

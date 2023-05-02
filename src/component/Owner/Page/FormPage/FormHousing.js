@@ -56,12 +56,13 @@ const FormHousing = ({setPage}) => {
     return (
         <div>
             <h2 className="my-4 text-center">New Housing 🏠</h2>
-            <Card className='my-2 p-4 '>
+            <Card className='my-2 p-4 bg-light'>
                 <Form>
 
                     <Form.Group className='mb-3'>
                         <Form.Label>Address</Form.Label>
                         <Form.Control
+                            style={{ backgroundColor: '#EAEAEA' }}
                             type='text'
                             placeholder='Enter address here'
                             id="housing_address"
@@ -75,6 +76,7 @@ const FormHousing = ({setPage}) => {
                             <Form.Group>
                                 <Form.Label>Habitable surface</Form.Label>
                                 <Form.Control
+                                    style={{ backgroundColor: '#EAEAEA' }}
                                     type='number'
                                     id="area"
                                     value={housingData.area}
@@ -87,6 +89,7 @@ const FormHousing = ({setPage}) => {
                             <Form.Group>
                                 <Form.Label>Bedrooms</Form.Label>
                                 <Form.Control
+                                    style={{ backgroundColor: '#EAEAEA' }}
                                     type='number'
                                     id="bedrooms_nb"
                                     value={housingData.bedrooms_nb}
@@ -99,6 +102,7 @@ const FormHousing = ({setPage}) => {
                             <Form.Group>
                                 <Form.Label>Bathrooms</Form.Label>
                                 <Form.Control
+                                    style={{ backgroundColor: '#EAEAEA' }}
                                     type='number'
                                     id="bathrooms_nb"
                                     value={housingData.bathrooms_nb}
@@ -114,6 +118,7 @@ const FormHousing = ({setPage}) => {
                             <Form.Group>
                                 <Form.Label>Monthly rent</Form.Label>
                                 <Form.Control
+                                    style={{ backgroundColor: '#EAEAEA' }}
                                     type='number'
                                     id="monthly_rent"
                                     value={housingData.monthly_rent}
@@ -126,6 +131,7 @@ const FormHousing = ({setPage}) => {
                             <Form.Group>
                                 <Form.Label>Lease duration (month)</Form.Label>
                                 <Form.Control
+                                    style={{ backgroundColor: '#EAEAEA' }}
                                     type='number'
                                     id="lease_duration"
                                     value={housingData.lease_duration}
@@ -165,7 +171,7 @@ const FormHousing = ({setPage}) => {
                         <Col>
                             <Form.Group>
                                 <Form.Label>Housing type :</Form.Label>
-                                <Form.Select id="type_name" value={housingData.type_name} onChange={handleChange}>
+                                <Form.Select style={{ backgroundColor: '#EAEAEA' }} id="type_name" value={housingData.type_name} onChange={handleChange}>
                                     {typeOptions.map((option) => <option key={option} value={option}>{option}</option>)}
                                 </Form.Select>
                             </Form.Group>
@@ -174,7 +180,7 @@ const FormHousing = ({setPage}) => {
 
                     <FormPicture setHousingPictures={setHousingPictures}/>
 
-                    <Button type="button" onClick={onSubmit}>Submit</Button>
+                    <Button type="button" variant="dark" onClick={onSubmit}>Submit</Button>
                     {isSubmiting && <Spinner animation="grow" variant="primary" />}
                 </Form>
                 {error && <Alert variant='danger' className='mt-3'>Something wrong happened</Alert>}
