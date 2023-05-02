@@ -14,7 +14,7 @@ const UpdateHousing = ({ housing, setIsEditing }) => {
         lease_duration: housing.lease_duration,
         furnished: housing.furnished,
         type_name: housing.type_name,
-        owner_id: localStorage.getItem('ownerId'),
+        owner_id: housing.owner_id,
     })
     const [housingPictures, setHousingPictures] = useState(housing.pictures)
 
