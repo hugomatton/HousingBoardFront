@@ -60,7 +60,7 @@ const Housing = () => {
                             </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <UpdateHousing housing={selectedHousing} setIsEditing={setIsEditing}></UpdateHousing>
+                            <UpdateHousing setSelectedHousing={setSelectedHousing} housing={selectedHousing} setIsEditing={setIsEditing}></UpdateHousing>
                         </Modal.Body>
                     </Modal>
                 </div>
