@@ -44,7 +44,7 @@ const MyHousings = () => {
                 </div>
 
                 <div style={{ width: "65%", position: "fixed", right: "0%" }}>
-                    {selectedHousing && <HousingDetail housing={selectedHousing} setIsEditing={setIsEditing}/>}
+                    {selectedHousing && <HousingDetail setSelectedHousing={setSelectedHousing} housing={selectedHousing} setIsEditing={setIsEditing}/>}
                 </div>
                 <Modal
                     show={isEditing}
@@ -58,7 +58,7 @@ const MyHousings = () => {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <UpdateHousing housing={selectedHousing} setIsEditing={setIsEditing}></UpdateHousing>
+                        <UpdateHousing setSelectedHousing={setSelectedHousing} housing={selectedHousing} setIsEditing={setIsEditing}></UpdateHousing>
                     </Modal.Body>
                 </Modal>
             </div>
