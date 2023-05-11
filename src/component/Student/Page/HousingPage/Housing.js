@@ -25,21 +25,25 @@ const Housing = () => {
   }, []);
 
   return (
-    <div>
-      {noHousing && <Alert className='my-5' variant="primary">There are no housings </Alert>}
-      {isLoading && <Spinner animation="border" variant="primary" />}
-      <div style={{ display: "flex" }}>
-        <div style={{ flex: "1" }}>
-          {housings.map((housing) => {
-            return (
-              <div key={housing.housing_id} className="mb-3">
-                <HousingCard housing={housing} setSelectedHousing={setSelectedHousing}></HousingCard>
-              </div>
-            );
-          })}
+    <div style={{ display: 'flex', alignItems: 'center'}}>
+      <div style={{ margin: 'auto', width: '100%' }}>
+        {noHousing && <Alert className='my-5' variant="primary">There are no housings </Alert>}
+        <div className="d-flex justify-content-center align-items-center">
+          {isLoading && <Spinner className='my-5' animation="border" variant="primary" />}
         </div>
-        <div style={{ width: "65%", position: "fixed", right: "0%" }}>
-          {selectedHousing && <HousingDetail housing={selectedHousing} />}
+        <div style={{ display: "flex" }}>
+          <div style={{ flex: "1" }}>
+            {housings.map((housing) => {
+              return (
+                <div key={housing.housing_id} className="mb-3">
+                  <HousingCard housing={housing} setSelectedHousing={setSelectedHousing}></HousingCard>
+                </div>
+              );
+            })}
+          </div>
+          <div style={{ width: "65%", position: "fixed", right: "0%" }}>
+            {selectedHousing && <HousingDetail housing={selectedHousing} />}
+          </div>
         </div>
       </div>
     </div>
