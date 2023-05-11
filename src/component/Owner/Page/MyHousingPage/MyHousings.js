@@ -44,7 +44,7 @@ const MyHousings = () => {
                 </div>
 
                 <div style={{ width: "65%", position: "fixed", right: "0%" }}>
-                    {selectedHousing && <HousingDetail housing={selectedHousing} setIsEditing={setIsEditing}/>}
+                    {selectedHousing && <HousingDetail setSelectedHousing={setSelectedHousing} housing={selectedHousing} setIsEditing={setIsEditing}/>}
                 </div>
                 <Modal
                     show={isEditing}
