@@ -179,7 +179,9 @@ const UpdateHousing = ({ housing, setIsEditing, setSelectedHousing }) => {
                     <UpdatePicture setHousingPictures={setHousingPictures} housingPictures={housingPictures} />
 
                     <Button className='my-3' variant="dark" type="button" onClick={onSubmit}>Submit</Button>
-                    {isSubmiting && <Spinner animation="grow" variant="primary" />}
+                    <div className="d-flex justify-content-center">
+                        {isSubmiting && <Spinner className='mx-3' animation="grow" variant="primary" />}
+                    </div>
                 </Form>
                 }
                 {error && <Alert variant='danger' className='mt-3'>Something wrong happened</Alert>}
