@@ -2,7 +2,7 @@ import AdminPage from "./component/Admin/AdminPage";
 import OwnerPage from "./component/Owner/OwnerPage";
 import SignupLogin from "./component/SigupLogin/SignupLogin";
 import StudentPage from "./component/Student/StudentPage";
-import ChatPage from "./component/Chat/Chat";
+import Conversation from "./component/Chat/Conversation/Conversation";
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 function App() {
@@ -25,8 +25,8 @@ function App() {
       element: <AdminPage/>
     },
     {
-      path: 'chat',
-      element: <ChatPage/>
+      path: 'conversation',
+      element: <Conversation/>
     }
   ])
 
