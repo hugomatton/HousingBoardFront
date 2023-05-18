@@ -5,6 +5,9 @@ import { Row, Col, Spinner } from 'react-bootstrap'
 import Conversation from './Conversation/Conversation'
 
 const Chat = () => {
+
+    const studentId = localStorage.getItem('studentId')
+
     const [isLoading, setIsLoading] = useState(false);
     const [conversations, setConversations] = useState([]);
     const [selectedConversation, setSelectedConversation] = useState();
@@ -12,7 +15,7 @@ const Chat = () => {
     const getConversations = async function () {
         setIsLoading(true); // Définir isLoading à true avant de récupérer les conversations
         try {
-            const result = await axios.get('http://localhost:5000/message/allConversationStudent?student_id=Student1');
+            const result = await axios.get(`http://localhost:5000/message/allConversationStudent?student_id=${studentId}`);
             setConversations(result.data);
         } catch (error) {
             console.error(error);
@@ -26,7 +29,6 @@ const Chat = () => {
 
     return (
         <div>
-            <h2 className="my-4 text-center">Chat ✉️</h2>
             <Row>
                 <Col xs={3}>
                     {isLoading ? (
@@ -37,7 +39,7 @@ const Chat = () => {
                 </Col>
                 <Col xs={9}>
                     {
-                        selectedConversation && <Conversation />
+                        selectedConversation && <Conversation conversation={selectedConversation} studentId={studentId}/>
                     }
                 </Col>
             </Row>
