@@ -2,12 +2,14 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Message from "./Message/Message";
 import axios from "axios";
+import FromChat from "./FormChat/FormChat";
+import FormChat from "./FormChat/FormChat";
 
 const Conversation = ({conversation, studentId}) => {
   const messages = [
-    { sender: "Owner", content: "Bonjour !" },
-    { sender: "Student", content: "Salut !" },
-    { sender: "Student", content: "Comment ça va ?" }
+    { sender: "Owner", content: "Hi !" },
+    { sender: "Student", content: "Hello !" },
+    { sender: "Student", content: "Is your housing still available ?" }
   ];
 
   const getConversation =  async function(){
@@ -23,6 +25,8 @@ const Conversation = ({conversation, studentId}) => {
           {index !== messages.length - 1 && <div style={{ marginBottom: "10px" }}></div>}
         </React.Fragment>
       ))}
+      <div style={{ marginBottom: "20px" }}></div>
+      <FormChat/>
     </Container>
   );
 };
