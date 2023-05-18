@@ -2,8 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import { Navbar, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 
-const MessageForm = () => {
+const MessageForm = ({receiverId, getConversation}) => {
   const [message, setMessage] = useState('');
   const textAreaRef = useRef(null);
 
@@ -24,10 +26,20 @@ const MessageForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(message)
+    await axios.post(
+      'http://localhost:5000/message/studentToOwner',
+      {
+        content: message,
+        studentSendId: localStorage.getItem('studentId'),
+        ownerReceiveId: receiverId
+      }
+    )
     setMessage('');
     adjustTextAreaHeight();
+    getConversation()
   };
 
   return (
@@ -46,7 +58,7 @@ const MessageForm = () => {
           />
         </InputGroup>
       </form>
-      <Button variant="primary" type="submit" style={{ alignSelf: 'flex-end' }}>
+      <Button onClick={handleSubmit} variant="primary" type="submit" style={{ alignSelf: 'flex-end' }}>
         Send
       </Button>
     </div>

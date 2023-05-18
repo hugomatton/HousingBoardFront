@@ -1,18 +1,37 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
+import { Row, Col } from "react-bootstrap";
 
-const Message = ({ sender, content }) => {
-  const isOwner = sender === "Owner";
-  const messageStyle = {backgroundColor: isOwner ? "#F8F9FA" : "#cccccc"};
-  const textVariant = isOwner ? "gray" : "black";
-  const placeVariant = isOwner ? "text-end" : "text-start";
+const Message = ({ message, studentId }) => {
+  const isOnRight = message[4] === studentId;
+  const messageStyle = { backgroundColor: isOnRight ? "#F8F9FA" : "#cccccc" };
+  const textVariant = isOnRight ? "gray" : "black";
+  const placeVariant = isOnRight ? "text-end" : "text-start";
 
   return (
     <Container>
-      <Card body className={placeVariant} style={messageStyle} text={textVariant}>
-        <strong>{sender}:</strong> {content}
-      </Card>
+      <Row>
+        {isOnRight ? (
+          <>
+            <Col></Col>
+            <Col>
+              <Card body className={placeVariant} style={messageStyle} text={textVariant}>
+                {message[2]}
+              </Card>
+            </Col>
+          </>
+        ) : (
+          <>
+            <Col>
+              <Card body className={placeVariant} style={messageStyle} text={textVariant}>
+                {message[2]}
+              </Card>
+            </Col>
+            <Col></Col>
+          </>
+        )}
+      </Row>
     </Container>
   );
 };
