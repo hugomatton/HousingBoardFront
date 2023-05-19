@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { Navbar, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
-const MessageForm = ({receiverId, getConversation}) => {
+const MessageForm = ({receiverId, getConversation, forStudent}) => {
   const [message, setMessage] = useState('');
   const textAreaRef = useRef(null);
 
@@ -28,15 +28,28 @@ const MessageForm = ({receiverId, getConversation}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(message)
-    await axios.post(
-      'http://localhost:5000/message/studentToOwner',
-      {
-        content: message,
-        studentSendId: localStorage.getItem('studentId'),
-        ownerReceiveId: receiverId
-      }
-    )
+    console.log('ok')
+      console.log(receiverId)
+    if(forStudent){
+      await axios.post(
+        'http://localhost:5000/message/studentToOwner',
+        {
+          content: message,
+          studentSendId: localStorage.getItem('studentId'),
+          ownerReceiveId: receiverId
+        }
+      )
+    }
+    else{
+      await axios.post(
+        'http://localhost:5000/message/ownerToStudent',
+        {
+          content: message,
+          ownerSendId: localStorage.getItem('ownerId'),
+          studentReceiveId: receiverId
+        }
+      )
+    }
     setMessage('');
     adjustTextAreaHeight();
     getConversation()
