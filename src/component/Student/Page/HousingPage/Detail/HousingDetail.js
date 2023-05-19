@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import { Badge, Card, Carousel, Modal, Button, Form } from "react-bootstrap";
 import logo from "../../../../../image/envoyer.png";
+import axios from "axios";
 
 const HousingDetail = ({ housing }) => {
   const [showModal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
 
-  const handleSendMessage = () => {
+  console.log(housing)
+
+  const handleSendMessage = async () => {
+    await axios.post(
+      'http://localhost:5000/message/studentToOwner',
+      {
+        content: message,
+        studentSendId: localStorage.getItem('studentId'),
+        ownerReceiveId: housing.owner_id
+      }
+    )
     setMessage("");
     setShowModal(false);
   };
