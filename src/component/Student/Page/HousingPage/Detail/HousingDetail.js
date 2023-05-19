@@ -7,19 +7,19 @@ const HousingDetail = ({ housing }) => {
   const [showModal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
 
-  console.log(housing)
-
   const handleSendMessage = async () => {
-    await axios.post(
-      'http://localhost:5000/message/studentToOwner',
-      {
-        content: message,
-        studentSendId: localStorage.getItem('studentId'),
-        ownerReceiveId: housing.owner_id
-      }
-    )
-    setMessage("");
-    setShowModal(false);
+    if (window.confirm("Are you sure you want to send the message?")) {
+      await axios.post(
+        "http://localhost:5000/message/studentToOwner",
+        {
+          content: message,
+          studentSendId: localStorage.getItem("studentId"),
+          ownerReceiveId: housing.owner_id,
+        }
+      );
+      setMessage("");
+      setShowModal(false);
+    }
   };
 
   return (
@@ -27,7 +27,7 @@ const HousingDetail = ({ housing }) => {
       <Carousel>
         {housing.pictures.map((picture) => {
           return (
-            <Carousel.Item>
+            <Carousel.Item key={picture}>
               <Card.Img style={{ maxHeight: "50vh" }} src={picture} />
             </Carousel.Item>
           );

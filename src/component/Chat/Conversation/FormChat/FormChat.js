@@ -69,7 +69,7 @@ const MessageForm = ({receiverId, getConversation, forStudent}) => {
           />
         </InputGroup>
       </form>
-      <Button onClick={handleSubmit} variant="primary" type="submit" style={{ alignSelf: 'flex-end' }}>
+      <Button onClick={handleSubmit} variant="dark" type="submit" style={{ alignSelf: 'flex-end' }}>
         Send
       </Button>
     </div>

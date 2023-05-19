@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 
 const Message = ({ message, studentId }) => {
   const isOnRight = message[4] === studentId;
-  const messageStyle = { backgroundColor: isOnRight ? "#F8F9FA" : "#cccccc" };
+  const messageStyle = { backgroundColor: isOnRight ? "#EAECEE" : "#cccccc" };
   const textVariant = isOnRight ? "gray" : "black";
   const placeVariant = isOnRight ? "text-end" : "text-start";
 

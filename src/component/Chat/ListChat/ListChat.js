@@ -31,7 +31,7 @@ const ListChat = ({ conversations, setSelectedConversation }) => {
                   padding: "0.75rem",
                   border: "1px solid #ccc",
                   borderRadius: "0.25rem",
-                  backgroundColor: "#fff",
+                  backgroundColor: "#EAECEE",
                 }}
               >
                 <div className="ms-2 me-auto">
