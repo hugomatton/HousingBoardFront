@@ -58,7 +58,7 @@ const MessageForm = ({receiverId, getConversation, forStudent}) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <form onSubmit={handleSubmit}>
-        <InputGroup className="mb-3">
+        <InputGroup className="mb-2">
           <FormControl
             as="textarea"
             placeholder="Write your message..."
