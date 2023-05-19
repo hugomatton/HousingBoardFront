@@ -28,8 +28,6 @@ const MessageForm = ({receiverId, getConversation, forStudent}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('ok')
-      console.log(receiverId)
     if(forStudent){
       await axios.post(
         'http://localhost:5000/message/studentToOwner',
