@@ -30,7 +30,7 @@ const NavbarOwner = ({ setPage }) => {
         <Nav className="me-auto">
           <Nav.Link className="mx-5" onClick={() => { setPage('myHousings') }}>My Housings</Nav.Link>
           <Nav.Link onClick={() => { setPage('addHousing') }}>Add Housing</Nav.Link>
-          <Nav.Link className="mx-5">Message</Nav.Link>
+          <Nav.Link className="mx-5" onClick={() => { setPage('message') }}>Message</Nav.Link>
         </Nav>
         <Button variant="outline-light" onClick={logout}>Logout</Button>
       </Container>

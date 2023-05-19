@@ -13,7 +13,7 @@ const StudentPage = () => {
       <NavbarStudent setPage={setPage}></NavbarStudent>
       <Container>
         {page === 'Housing' && <Housing/>}
-        {page === 'Message' && <Chat/>}
+        {page === 'Message' && <Chat forStudent/>}
       </Container>
     </div>
   );
