@@ -35,7 +35,7 @@ const ListChat = ({ conversations, setSelectedConversation }) => {
                 }}
               >
                 <div className="ms-2 me-auto">
-                  <div className="fw-bold">{conversation[0]}</div>I am interested with your housing
+                  <div className="fw-bold">{conversation[0]}</div>
                 </div>
               </ListGroup.Item>
             );

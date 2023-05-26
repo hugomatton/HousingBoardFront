@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import { Navbar, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
 const MessageForm = ({receiverId, getConversation, forStudent}) => {
